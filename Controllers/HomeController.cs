@@ -1,4 +1,4 @@
-using Bookstore.Models;
+using Bookstore.Models.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -8,9 +8,9 @@ namespace Bookstore.Controllers
     {
         private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> Logger)
         {
-            _logger = logger;
+            _logger = Logger;
         }
 
         public IActionResult Index()
