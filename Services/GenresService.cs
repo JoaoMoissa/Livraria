@@ -27,5 +27,19 @@ namespace Bookstore.Services
         {
             return await _context.Genres.FindAsync(id);
         }
+
+        public async Task RemoveAsync(int id)
+        {
+            try
+            {
+                var obj = await _ context.Genres.FindAsync(id);
+                _context.Genres.Remove(obj);
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateException ex)
+            {
+                throw new IntegrityExeption(ex.Message);
+            }
+        }
     }
 }

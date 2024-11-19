@@ -12,10 +12,6 @@ namespace Bookstore.Models
 
         //public ICollection<Book> Books { get; set; } = new List<Book>();
         
-        public Genre() 
-        {
-            
-        }
         public Genre(int id, string name)
         {
             Id = id;
