@@ -7,6 +7,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
+//save
+
 namespace Bookstore.Migrations
 {
     [DbContext(typeof(BookstoreContext))]

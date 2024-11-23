@@ -1,6 +1,10 @@
 ﻿using Bookstore.Data;
 using Bookstore.Models;
+using Bookstore.Services.Exceptions;
 using Microsoft.EntityFrameworkCore;
+using System.Data;
+
+//save
 
 namespace Bookstore.Services
 {
@@ -32,13 +36,30 @@ namespace Bookstore.Services
         {
             try
             {
-                var obj = await _ context.Genres.FindAsync(id);
+                var obj = await _context.Genres.FindAsync(id);
                 _context.Genres.Remove(obj);
                 await _context.SaveChangesAsync();
             }
             catch (DbUpdateException ex)
             {
-                throw new IntegrityExeption(ex.Message);
+                throw new IntegrityException(ex.Message);
+            }
+        }
+        public async Task UpdateAsync(Genre genre)
+        {
+            bool hasAny = await _context.Genres.AnyAsync(x => x.Id == genre.Id);
+            if (!hasAny)
+            {
+                throw new NotFoundException("Id não encontrado");
+            }
+            try
+            {
+                _context.Update(genre);
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException ex)
+            {
+                throw new DbConcurrencyException(ex.Message);
             }
         }
     }

@@ -1,5 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
+//save
+
 namespace Bookstore.Models
 {
     public class Genre

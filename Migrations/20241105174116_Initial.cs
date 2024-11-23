@@ -3,6 +3,8 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
+//save
+
 namespace Bookstore.Migrations
 {
     /// <inheritdoc />

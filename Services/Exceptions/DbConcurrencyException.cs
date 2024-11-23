@@ -1,0 +1,26 @@
+﻿using System.Runtime.Serialization;
+
+//save
+
+namespace Bookstore.Services.Exceptions
+{
+    [Serializable]
+    internal class DbConcurrencyException : Exception
+    {
+        public DbConcurrencyException()
+        {
+        }
+
+        public DbConcurrencyException(string? message) : base(message)
+        {
+        }
+
+        public DbConcurrencyException(string? message, Exception? innerException) : base(message, innerException)
+        {
+        }
+
+        protected DbConcurrencyException(SerializationInfo info, StreamingContext context) : base(info, context)
+        {
+        }
+    }
+}
