@@ -16,6 +16,7 @@ namespace Bookstore
 
             builder.Services.AddScoped<GenresService>();
             builder.Services.AddScoped<SeedingService>();
+            builder.Services.AddScoped<BookService>();
 
             builder.Services.AddDbContext<BookstoreContext>(options =>
             {
